@@ -1,0 +1,62 @@
+import json
+from watson_developer_cloud import ToneAnalyzerV3
+
+tone_analyzer = ToneAnalyzerV3(
+   username='5faebcc0-77b8-442b-9c02-2631c777bce0',
+   password='VK2DP2AaKQsT',
+   version='2016-05-19 ')
+
+with open('../data/newSongsEmotion.json') as json_data:
+    song = json.load(json_data)
+    
+    for s in song:
+        tmp = (json.dumps(tone_analyzer.tone(text=(s['song_lyrics'])), indent=2))
+        #print(tmp)
+        emotion_dict = json.loads(tmp)
+        #print(emotion_dict)
+        tone = (emotion_dict['document_tone']['tone_categories'][0])
+        #print(tone['tones'])
+        max = 0
+        joy_level = ""
+        fear_level = ""
+        anger_level = ""
+        sad_level = ""
+        
+        for t in tone['tones']:
+            if(t['tone_name'] == "Disgust"): 
+                continue;
+            if(t['tone_name'] == "Fear"):
+                if(t['score']<0.5): 
+                    fear_level = "Low"
+                if(t['score']>=0.75): 
+                    fear_level = "High"
+                if(t['score']>=0.5 and t['score']<0.75): 
+                    fear_level = "Medium"
+            if(t['tone_name'] == "Joy"):
+                if(t['score']<0.5): 
+                    joy_level = "Low"
+                if(t['score']>=0.75): 
+                    joy_level = "High"
+                if(t['score']>=0.5 and t['score']<0.75): 
+                    joy_level = "Medium"
+            if(t['tone_name'] == "Anger"):
+                if(t['score']<0.5): 
+                    anger_level = "Low"
+                if(t['score']>=0.75): 
+                    anger_level = "High"
+                if(t['score']>=0.5 and t['score']<0.75): 
+                    anger_level = "Medium"
+            if(t['tone_name'] == "Sadness"):
+                if(t['score']<0.5): 
+                    sad_level = "Low"
+                if(t['score']>=0.75): 
+                    sad_level = "High"
+                if(t['score']>=0.5 and t['score']<0.75): 
+                    sad_level = "Medium"
+        #print(name)
+        #print(level)
+        s['emotion_fear'] = fear_level
+        s['emotion_joy'] = joy_level
+        s['emotion_anger'] = anger_level
+        s['emotion_sadness'] = sad_level
+    print(json.dumps(song, indent=2))
