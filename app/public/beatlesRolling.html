@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="songData">
+   <head>
+   		<title> Beatles vs Rolling </title>
+   		<link rel="stylesheet" href="css/style.css">
+   		<link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+   </head>
+   <body class="animated fadeIn">
+	    <header ng-controller="songscontroller">
+		    <h1 class = "title"> The Beatles vs. The Rolling Stones </h1>
+			<p id = "subHeadline"> Emotional Comparison Between the Lyrics of the Best Rock Bands </p>
+			<ul>
+				<li id = "legend"> LEGEND → </li> 
+				<li id = "joyLi"> JOY </li>
+				<li id = "fearLi"> FEAR </li>
+				<li id = "sadLi"> SADNESS </li>
+				<li id = "angerLi"> ANGER </li>
+			</ul>
+			<section id="headDate"> Date </section> 
+		</header>
+	    <main>
+			<section id = "bSong"> </section>
+			<section id="bSongNameSec"></section>
+			<table id = "tWrapper"  class="animatedTable fadeIn">
+				<tr ng-repeat = "s in songs" class={{s.id}}>
+					<td class = "invisible">	
+						<table id = "bTable"> 
+							 <tr id="bRow" ng-repeat="b in s.beatlesSongs" ng-click="showSong(b.song_name, b.band_name, b.song_writer, b.album_name, b.release_date, b.song_lyrics)" ng-mouseover="hoverSong(b.song_name, b.band_name, b.release_date)" ng-mouseleave ="coverSong(b.band_name)">
+							    <td id = "tb1"> <div class = "{{b.emotion_joy}}" id= "Joy"> </div> </td>
+							    <td id = "tb2"> <div class = "{{b.emotion_fear}}" id= "Fear"> </div> </td>
+							    <td id = "tb3"> <div class = "{{b.emotion_sadness}}" id= "Sadness"> </div> </td>
+							    <td class="invisible"> <div class = "{{b.emotion_anger}}" id= "Anger"> </div> </td>
+							 </tr>
+						</table>
+					</td>
+					<td class = "invisible">
+						<table id = "rTable"> 
+							 <tr id="rRow" ng-repeat="r in s.rollingSongs" ng-click="showSong(r.song_name, r.band_name, r.song_writer, r.album_name, r.release_date, r.song_lyrics)" ng-mouseover="hoverSong(r.song_name, r.band_name, r.release_date)" ng-mouseleave ="coverSong(r.band_name)">
+							    <td id = "tr1"> <div class = "{{r.emotion_joy}}" id= "Joy"> </div> </td>
+							   	<td id = "tr2"> <div class = "{{r.emotion_fear}}" id= "Fear"> </div> </td>
+							    <td id = "tr3"> <div class = "{{r.emotion_sadness}}" id= "Sadness"> </div> </td>
+							    <td class="invisible"> <div class = "{{r.emotion_anger}}" id= "Anger"> </div> </td>
+							 </tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+			<section id="rSongNameSec"></section>
+			<section id = "rSong">	
+			</section>
+			<div class = "clear"> </div>
+		</main>
+		<script src="js/lib/angular/angular.min.js"></script>
+        <script src="js/getsongsdata.js"></script>
+   </body>
+</html>

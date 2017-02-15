@@ -1,0 +1,397 @@
+main, section {
+    display: block;
+}
+
+body {
+	background: #452b44;
+}
+
+.video-background {
+  	background: #000;
+  	position: fixed;
+  	top: 0; right: 0; bottom: 0; left: 0;
+  	z-index: -99;
+}
+
+.video-foreground,
+.video-background iframe {
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+  	width: 100%;
+  	height: 100%;
+  	pointer-events: none;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  	.video-foreground { height: 300%; top: -100%; }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  	.video-foreground { width: 300%; left: -100%; }
+}
+
+@media (min-width: 1200px) {
+
+	header {
+		position: fixed;
+		top: 0px;
+		width: 100%;
+		padding-bottom: 2%;
+		background: #452B44;
+		z-index: 10;
+	}
+
+	main {
+		margin-top: 22%;
+		width: 100%;
+	}
+
+	.title {
+		font-family: 'Raleway';
+		font-weight: 900;
+		font-style: italic;
+		font-size: 42px;
+		color: #FDFCF2;
+		letter-spacing: 1.92px;
+		text-align: center;
+	}
+
+	ul {
+		margin-top: 4%;
+		text-align: center;
+		margin-left: -4%;
+	}
+
+	ul li {
+	    display:inline;
+	    padding: 1.5%;
+	}
+
+	#legend {
+		font-family: 'Raleway';
+		font-weight: 500;
+		font-style: italic;
+		font-size: 14px;
+		color: #fdfcf2;
+	}
+
+	#joyLi {  
+		font-family: 'Raleway';
+		font-weight: 900;
+		font-size: 14px;
+		color: #fdd172;
+		letter-spacing: 0.87px;
+	}
+
+	#fearLi {  
+		font-family: 'Raleway';
+		font-weight: 900;
+		font-size: 14px;
+		color: #87c388;
+		letter-spacing: 0.87px;
+	}
+
+	#sadLi {  
+		font-family: 'Raleway';
+		font-weight: 900;
+		font-size: 14px;
+		color: #62b6d0;
+		letter-spacing: 0.87px;
+	}
+
+	#angerLi {  
+		font-family: 'Raleway';
+		font-weight: 900;
+		font-size: 14px;
+		color: #c73935;
+		letter-spacing: 0.87px;
+	}
+
+	.Low {
+		width: 15px;
+		height: 15px;
+		-moz-border-radius: 50px;
+		-webkit-border-radius: 50px;
+		border-radius: 50px;
+		position: relative;
+		top: 87%;
+		right: 20%;
+	}
+
+	.Medium {
+		width: 25px;
+		height: 25px;
+		-moz-border-radius: 50px;
+		-webkit-border-radius: 50px;
+		border-radius: 50px;
+		position: relative;
+		top: 75%;
+		right: 30%;
+	}
+
+	.High {
+		width: 35px;
+		height: 35px;
+		-moz-border-radius: 50px;
+		-webkit-border-radius: 50px;
+		border-radius: 50px;
+		position: relative;
+		top: 70%;
+		right: 37%;
+	}
+
+	#Joy {
+		background: #fdd172;
+	}
+
+
+	#Fear {
+		background: #87c388;
+	}
+
+	#Sadness {
+		background: #62b6d0;
+	}
+
+	#Anger {
+		background: #c73935;
+	}
+
+	td {
+		border: 2px solid #6F7279;
+		width: 50px;
+		height: 60px;
+		vertical-align:top
+	}
+
+	#bRow:hover #tb1 , #bRow:hover #tb2, #bRow:hover #tb3 {
+		border-bottom: 2px solid #fdfcf2;
+	}
+
+	#rRow:hover #tr1 , #rRow:hover #tr2, #rRow:hover #tr3 {
+		border-bottom: 2px solid #fdfcf2;
+	}
+
+	.chosenSong #tb1, .chosenSong #tb2, .chosenSong #tb3 {
+		border-bottom: 2px solid #fdfcf2;
+	}
+
+	.chosenSong #tr1, .chosenSong #tr2, .chosenSong #tr3 {
+		border-bottom: 2px solid #fdfcf2;
+	}
+
+	#tWrapper, #bTable, #rTable {
+		border-collapse: collapse;
+		margin-bottom: -1%;
+	}
+
+	#bTable {
+		width: 200px;
+	}
+
+	#rTable {
+		width: 200px;
+		margin-left: 20%;
+	}
+
+	#rSong {
+		overflow-y: auto;
+		position: fixed;
+		float: left;
+		right: 1%;
+		padding: 40px;
+		padding-top:0px;
+		width: 220px;
+		height: 50%;
+	}
+
+	#rSongNameSec {
+		position: fixed;
+		float: left;
+		right: 24%;
+		margin-top: 1.2%;	
+		width: 120px;
+	}
+
+	#hoverSongName {
+		height: 21px;
+		font-family: 'Raleway';
+		font-size: 14px;
+		font-weight: 800;
+		font-style: italic;
+		font-stretch: normal;
+	 	letter-spacing: 1px;
+		color: #fdfcf2;
+		text-align: center;
+	}
+
+	#bSong {
+		overflow-y: auto;
+		position: fixed;
+		float: left;
+		padding: 40px;
+		padding-top:0px;
+		width: 220px;
+		height: 50%;
+		left: 3%;
+	}
+
+	#bSongNameSec {
+		position: fixed;
+		float: left;
+		left: 25%;	
+		width: 120px;
+		margin-top: 1.2%;
+	}
+
+	#songName {
+		font-family: 'Raleway';
+		font-weight: 800;
+		font-size: 24px;
+		color: #FDFCF2;
+	}
+
+	#songDetails {
+		font-family: 'Raleway';
+		font-weight: 500;
+		font-size: 12px;
+		color: #FDFCF2;
+		letter-spacing: 0.38px;
+		line-height: 22px;
+	}
+
+	#lyrics {
+		font-family: 'Raleway';
+		font-weight: 500;
+		font-size: 14px;
+		color: #FDFCF2;
+		letter-spacing: 0.45px;
+		line-height: 21px;
+	}
+
+	.clear {
+		clear: both;
+	}
+
+	.invisible {
+		border: none;
+	}
+
+	#bSong::-webkit-scrollbar {
+		display: none;
+	}
+
+	#rSong::-webkit-scrollbar {
+		display: none;
+	}
+
+	.empty{
+		display:none;
+	}
+
+	.full {
+		width: 800px;
+	}
+
+	#tWrapper {
+		float: left;
+		border: none;
+		margin-left: 35.5%;
+	}
+
+	#tWrapper td {
+		vertical-align:top;
+	}
+
+	#headDate {
+		text-align: center;
+		border: 2px solid #fdfcf2;
+		border-radius: 38px;
+		width: 75px;
+		height: 18px;
+		padding: 7px;
+		margin: 0px auto;
+		margin-top: 2%;
+		font-family: 'Raleway';
+		font-weight: 900;
+		font-size: 14px;
+ 		font-style: normal;
+  		font-stretch: normal;
+  		color: #452b44;
+  		background-color: #fdfcf2;
+	}
+
+	#subHeadline {
+		width: 100%;
+		height: 14px;
+		font-family: 'Raleway';
+		font-size: 12px;
+		font-weight: 600;
+		font-style: italic;
+		font-stretch: normal;
+		letter-spacing: 2.3px;
+		text-align: center;
+		color: #fdfcf2;
+	}
+
+	.songName {
+		width: 400px;
+	}
+
+	.pSong {
+		position: relative;
+		top: 60%;
+		right: 20%;
+		font-family: Raleway;
+	  	font-size: 18px;
+	    font-weight: 800;
+	  	font-style: italic;
+	  	font-stretch: normal;
+	  	letter-spacing: 1px;
+	  	color: #fdfcf2;
+	}
+
+	.animated {
+        -webkit-animation: fadein 5s; /* Safari, Chrome and Opera > 12.1 */
+		-moz-animation: fadein 5s; /* Firefox < 16 */
+		-ms-animation: fadein 5s; /* Internet Explorer */
+		-o-animation: fadein 5s; /* Opera < 12.1 */
+		animation: fadein 5s;
+    }
+
+    .animatedSong {
+        -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+		-moz-animation: fadein 2s; /* Firefox < 16 */
+		-ms-animation: fadein 2s; /* Internet Explorer */
+		-o-animation: fadein 2s; /* Opera < 12.1 */
+		animation: fadein 2s;
+    }
+     
+    .animatedTable {
+        -webkit-animation: fadein 15s; /* Safari, Chrome and Opera > 12.1 */
+		-moz-animation: fadein 2s; /* Firefox < 16 */
+		-ms-animation: fadein 2s; /* Internet Explorer */
+		-o-animation: fadein 2s; /* Opera < 12.1 */
+		animation: fadein 2s;
+    }
+
+    @-webkit-keyframes fadeIn {
+        0% {opacity: 0;}
+        100% {opacity: 1;}
+    }
+         
+    @keyframes fadeIn {
+        0% {opacity: 0;}
+        100% {opacity: 1;}
+    }
+         
+    .fadeIn {
+        -webkit-animation-name: fadeIn;
+        animation-name: fadeIn;
+    }
+}
+
+
+
+
